@@ -11,6 +11,8 @@ usando VLAN e un singolo router per il routing inter-VLAN.
 - 1 Switch Server (SW-Server) - VLAN 20
 - 4 PC (2 per VLAN)
 
+![Topologia](topologia.png)
+
 ## Schema IP
 
 | Dispositivo     | IP             | VLAN |
@@ -21,6 +23,8 @@ usando VLAN e un singolo router per il routing inter-VLAN.
 | PC-Server-2     | 192.168.20.3   | 20   |
 | Gateway VLAN 10 | 192.168.10.1   | 10   |
 | Gateway VLAN 20 | 192.168.20.1   | 20   |
+
+![router-interfaces](router-interfaces.png)
 
 ## Concetti chiave
 
