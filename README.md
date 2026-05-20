@@ -45,3 +45,18 @@ Il router lavora a livello 3 (IP) ed e l unico che puo instradare traffico tra V
 - Cisco Packet Tracer
 - Protocollo 802.1Q (trunk)
 - Routing inter-VLAN con sottointerfacce
+
+## DHCP
+
+Il router R1 funge da server DHCP per entrambe le VLAN.
+Gli indirizzi vengono assegnati automaticamente ai PC al momento della connessione.
+
+| Pool | Network | Gateway | Range assegnabile |
+|------|---------|---------|-------------------|
+| VLAN10-Ufficio | 192.168.10.0/24 | 192.168.10.1 | .2 - .254 |
+| VLAN20-Server | 192.168.20.0/24 | 192.168.20.1 | .2 - .254 |
+
+Il gateway e escluso dal pool con il comando `ip dhcp excluded-address`
+per evitare conflitti di indirizzamento.
+
+![DHCP Test](dhcp-test.png)
