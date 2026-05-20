@@ -60,3 +60,20 @@ Il gateway e escluso dal pool con il comando `ip dhcp excluded-address`
 per evitare conflitti di indirizzamento.
 
 ![DHCP Test](dhcp-test.png)
+
+## ACL - Protezione del Server
+
+E stata configurata una ACL extended su R1 per proteggere SRV-1 (192.168.20.4)
+dal traffico HTTP proveniente dalla VLAN 10.
+
+| Regola | Protocollo | Sorgente | Destinazione | Porta | Azione |
+|--------|------------|----------|--------------|-------|--------|
+| 1 | TCP | 192.168.10.0/24 | 192.168.20.4 | 80 | DENY |
+| 2 | IP | any | any | any | PERMIT |
+
+La ACL e applicata sulla sottointerfaccia GigabitEthernet0/0.10 in direzione inbound.
+
+Risultato:
+- I PC della VLAN 10 non possono accedere al server web (HTTP bloccato)
+- Il ping verso SRV-1 funziona regolarmente (ICMP permesso)
+- Il traffico tra VLAN continua a funzionare normalmente
